@@ -25,8 +25,13 @@ To download the data from OpenSecrets.org, register for access to bulk-data at [
  The length of emails differed by political ideology. The median length of liberal-leaning emails was higher than the lengths of conservative and center emails respectively. 
  ![boxplots of email lengths](images/email_length.png)
 
- Text in the email was processed by removing all non-word characters, tokenizing words, and removing stopwords from the tokens. Which produced the following wordclouds for each of the target variables. 
- ![wordcloud liberal](images/wordcloud_liberal2.png) ![wordcloud conservative](images/wordcloud_conserv2.png) ![wordcloud center](images/wordcloud_cent2.png)
+ Text in the email was processed by removing all non-word characters, tokenizing words, and removing stopwords from the tokens. Which produced the following wordclouds for each of the target variables.
+ Words within ciberal-leaning emails
+ ![wordcloud liberal](images/wordcloud_liberal2.png)
+ Words within conservative-leaning emails
+ ![wordcloud conservative](images/wordcloud_conserv2.png) 
+ Words within center-leaning emails
+ ![wordcloud center](images/wordcloud_cent2.png)
  
 ## Approach to Modeling
 An iterative approach was taken to modeling applying vectorizers to the processed text of the emails and modeling with classifiers. Each model was evaluated for accuracy by calculating an accuracy score, Cohen's Kappa coefficient, and analysis of the model's confusion matrix.  Models were tuned based on the results of these scores. 
