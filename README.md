@@ -26,10 +26,13 @@ To download the data from OpenSecrets.org, register for access to bulk-data at [
  ![boxplots of email lengths](images/email_length.png)
 
  Text in the email was processed by removing all non-word characters, tokenizing words, and removing stopwords from the tokens. Which produced the following wordclouds for each of the target variables.
+
 Words within liberal-leaning emails
 ![wordcloud liberal](images/wordcloud_liberal2.png)
+
 Words within conservative-leaning emails
 ![wordcloud conservative](images/wordcloud_conserv2.png) 
+
 Words within center-leaning emails
 ![wordcloud center](images/wordcloud_cent2.png)
  
