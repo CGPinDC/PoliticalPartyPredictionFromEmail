@@ -20,32 +20,17 @@ To download the data from OpenSecrets.org, register for access to bulk-data at [
 Once the data is saved as directed above, the main branch of this repository contains everything necessary to run the jupyter notebook `Notebook_ClassifyingPoliticalEmails.ipynb`. The notebook can be run a local computer with the environment requirements found within the enviornments folder. 
 
 ## Data Exploration and Cleaning
- The corpus contains contains 317,366 emails from over 3000 political campaigns and organizations in the 2020 election cycle in the US. Emails were classified by political ideology (liberal, conservative, center) which acted as the target variable. Emails originated from political campaigns and political organzations. 
+The corpus contains contains 317,366 emails from over 3000 political campaigns and organizations in the 2020 election cycle in the US. Emails were classified by political ideology (liberal, conservative, center) which acted as the target variable. Emails originated from political campaigns and political organzations. 
 
- ![bar graph of target variables](images/target_distribution.png) 
-
-<<<<<<< HEAD
- Text in the email was processed by removing all non-word characters, tokenizing words, and removing stopwords from the tokens. 
-=======
- Text in the email was processed by removing all non-word characters, tokenizing words, and removing stopwords from the tokens. Which produced the following wordclouds for each of the target variables.
-
-Words within liberal-leaning emails
-![wordcloud liberal](images/wordcloud_liberal2.png)
-
-Words within conservative-leaning emails
-![wordcloud conservative](images/wordcloud_conserv2.png) 
-
-Words within center-leaning emails
-![wordcloud center](images/wordcloud_cent2.png)
->>>>>>> 3252bca562b9a1c198ef10bebc46087d9e080722
+![bar graph of target variables](images/target_distribution.png) 
  
 ## Approach to Modeling
 An iterative approach was taken to modeling applying vectorizers to the processed text of the emails then modeling with classifiers. With the aim of producing an accurate classifier, each model was evaluated for accuracy by calculating an accuracy score, Cohen's Kappa coefficient, and analysis of the model's confusion matrix.  Models were tuned based on the results of these scores. 
 
- Models included multinomial naive bayes, decision trees, and stochastic gradient descent classifier. The scores of the models were comapred and a final model was selected based on scores and the classifier's ability to be generalizable to unseen emails. 
+Models included multinomial naive bayes, decision trees, and stochastic gradient descent classifier. The scores of the models were comapred and a final model was selected based on scores and the classifier's ability to be generalizable to unseen emails. 
 
- The best model used a CountVectorizer on pre-processed email text with a Stochastic Gradient Descent Classifier to classify emails as a binary target (liberal or conservative). This model achieved 98% accuracy score and 0.94 Cohen's Kappa coefficient.
- ![final model confusion matrix](images/finalmodel_confusionmatrix.png) 
+The best model used a CountVectorizer on pre-processed email text with a Stochastic Gradient Descent Classifier to classify emails as a binary target (liberal or conservative). This model achieved 98% accuracy score and 0.94 Cohen's Kappa coefficient.
+![final model confusion matrix](images/finalmodel_confusionmatrix.png) 
 
  ## Conclusion 
 The aim of this project was to create a classification model for political emails. Deployment of this model would allow recipiants of political emails to classify emails from political organizations that did not have a stated political affiliation thereby creating transparency. On the other hand, politial organzations and candidates could use this tool to classify their outgoing email's political-ideology. This could help strategically plan email campaigns to appeal to target voters or producing emails that align with their politial ideology. 
@@ -53,6 +38,7 @@ The aim of this project was to create a classification model for political email
 There are limitations to the model. This is only applicable to recent political emails in the United States and may not have lasting accuracy as the political landsape changes over time. To combat these limitations, future modeling should include political emails beyond the 2020 Campaign Cycle. This model was trained using only the email's text. Future modeling should explore including other email characteristics into the model such as length, time of day/month/election-cycle sent, number of links within an email, and if the email is personalized to the recipient. 
 
 ## Repository Navigation
+```
 ├── images                                      <- conatins saved images
 ├── notebooks                                   <- folder containing notebooks
 │   ├── Notebook1_EstablishTarget.ipynb
@@ -65,5 +51,5 @@ There are limitations to the model. This is only applicable to recent political 
 ├── ClassifyingPoliticalEmails_Notebook.ipynb   <- main notebook 
 ├── ClassifingPliticalEmailsPresentation_.pdf   <- presentation slides
 └── README.md                                   <- README file
- 
+```
 
