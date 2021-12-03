@@ -24,7 +24,20 @@ Once the data is saved as directed above, the main branch of this repository con
 
  ![bar graph of target variables](images/target_distribution.png) 
 
+<<<<<<< HEAD
  Text in the email was processed by removing all non-word characters, tokenizing words, and removing stopwords from the tokens. 
+=======
+ Text in the email was processed by removing all non-word characters, tokenizing words, and removing stopwords from the tokens. Which produced the following wordclouds for each of the target variables.
+
+Words within liberal-leaning emails
+![wordcloud liberal](images/wordcloud_liberal2.png)
+
+Words within conservative-leaning emails
+![wordcloud conservative](images/wordcloud_conserv2.png) 
+
+Words within center-leaning emails
+![wordcloud center](images/wordcloud_cent2.png)
+>>>>>>> 3252bca562b9a1c198ef10bebc46087d9e080722
  
 ## Approach to Modeling
 An iterative approach was taken to modeling applying vectorizers to the processed text of the emails then modeling with classifiers. With the aim of producing an accurate classifier, each model was evaluated for accuracy by calculating an accuracy score, Cohen's Kappa coefficient, and analysis of the model's confusion matrix.  Models were tuned based on the results of these scores. 
