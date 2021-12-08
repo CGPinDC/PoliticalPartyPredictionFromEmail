@@ -1,14 +1,12 @@
 # Political Email Classification
 
 ## Introduction
-Can a model predict the political ideology of a campaign or PAC from an email? A classification model was created using Natural Language Processing (NLP) and machine learning techniques to answer this question. This repository provides an overview of the data used, modeling approach, and results along with citations and resources. 
+Can a model predict the political ideology of a campaign or PAC from an email? A classification model was created using Natural Language Processing (NLP) and machine learning (ML) techniques to answer this question. This repository provides an overview of the data used, modeling approach, and results along with steps for replication. 
 
 ## Project Rationale
-One way political campaigns and organizations contact voters is through email. A model that predicts the political ideology (liberal-leaning or conservative-leaning) of an email can act as a tool for voters, political campaigns and organizations alike. 
+One way political campaigns and organizations contact voters is through email. A model that predicts the political ideology (liberal-leaning or conservative-leaning) of an email can act as a tool for both voters,  and political campaigns alike. 
 
-Voters would benefit from this tool by gaining insight to the ideology of a political email they receive. This would be helpful in situations where a political organization, such as a PAC, or a political campaign do not clearly state their political agenda or party affiliation but are asking for financial contributions. 
-
-Political campaigns and organizations would be able to use this tool as a part of their strategic planning for upcoming email campaigns. The model would allow campaigns and organizations to assess if the “tone” of their political-ideology is coming across, or target a specific type of voter. For example, if an organization's goal is to reach a particular type of voter they can assess if their email matches the recipient’s political ideology as a persuasion tactic. 
+For voters, this tool can provide transparency in circumstances where the underlying party-affiliation or agenda of an email is unclear but they are asking for money and your vote. For campaigns and organizations, this model can be used before sending an email to see if the email matches the political ideology they are trying to communicate.
 
 ## Accessing Data
 This repository replies on data from the Princeton Corpus of Political Emails and OpenSecrets.org. 
@@ -20,16 +18,17 @@ To download the data from OpenSecrets.org, register for access to bulk-data at [
 Once the data is saved as directed above, the main branch of this repository contains everything necessary to run the jupyter notebook `Notebook_ClassifyingPoliticalEmails.ipynb`. The notebook can be run a local computer with the environment requirements found within the enviornments folder. 
 
 ## Data Exploration and Cleaning
-The corpus contains contains 317,366 emails from over 3000 political campaigns and organizations in the 2020 election cycle in the US. Emails were classified by political ideology (liberal, conservative, center) which acted as the target variable. Emails originated from political campaigns and political organzations. 
+The corpus contains contains 317,366 emails from over 3000 political campaigns and organizations in the 2020 election cycle in the US. Emails were classified by political ideology (liberal, conservative) which acted as the target variable. Emails originated from political campaigns and political organzations. The text of the data was cleaned by removing all non-word characters, tokenizing words, and removing stopwords. 
 
 ![bar graph of target variables](images/target_distribution.png) 
  
 ## Approach to Modeling
-An iterative approach was taken to modeling applying vectorizers to the processed text of the emails then modeling with classifiers. With the aim of producing an accurate classifier, each model was evaluated for accuracy by calculating an accuracy score, Cohen's Kappa coefficient, and analysis of the model's confusion matrix.  Models were tuned based on the results of these scores. 
+An iterative approach was taken to modeling applying vectorizers to the processed text of the emails then modeling with classifiers. With the aim of producing an accurate classifier, each model was evaluated for accuracy by calculating an accuracy score, F1 score, Cohen's Kappa coefficient, and analysis of the model's confusion matrix.  Models were tuned based on the results of these scores. 
 
 Models included multinomial naive bayes, decision trees, and stochastic gradient descent classifier. The scores of the models were comapred and a final model was selected based on scores and the classifier's ability to be generalizable to unseen emails. 
 
 The best model used a CountVectorizer on pre-processed email text with a Stochastic Gradient Descent Classifier to classify emails as a binary target (liberal or conservative). This model achieved 98% accuracy score and 0.94 Cohen's Kappa coefficient.
+
 ![final model confusion matrix](images/finalmodel_confusionmatrix.png) 
 
  ## Conclusion 
@@ -39,17 +38,21 @@ There are limitations to the model. This is only applicable to recent political 
 
 ## Repository Navigation
 ```
+├── environment                                 
+│   ├── environment.yml                         <- evironment used
+│   └── requirements.txt                        <- requirements for running notebooks
+│
 ├── images                                      <- conatins saved images
-├── notebooks                                   <- folder containing notebooks
+├── notebooks                                   <- contains notebooks with CRISP-DM steps
 │   ├── Notebook1_EstablishTarget.ipynb
 │   ├── Notebook2_DataCleaning_EDA.ipynb
 │   ├── Notebook3_FSM.ipynb
 │   ├── Notebook4_Modeling.ipynb
-│   └── Notebook5_FeedbackEdits.ipynb
+│   └── Notebook5_Edits.ipynb
 │
 ├── .gitignore                                  <- file of files/directories to ignore
-├── ClassifyingPoliticalEmails_Notebook.ipynb   <- main notebook 
-├── ClassifingPliticalEmailsPresentation_.pdf   <- presentation slides
+├── ClassifyingPoliticalEmails_Notebook.ipynb   <- main notebook of end-to-end process
+├── ClassifingPliticalEmails_Presentation.pdf   <- presentation slides
 └── README.md                                   <- README file
 ```
 
